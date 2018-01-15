@@ -134,7 +134,6 @@ $(document).ready(function(){
 
   function initTerrain(){
     backgroundColor = randomColor();
-    canvas.style.cssText = "background-color: " + backgroundColor + ";";
     terrainD = buildTerrain(randomColor(), {min: 0.25, max: 0.5}, 0.9, 200, 8, 1/20);
     terrainC = buildTerrain(randomColor(), {min: 0.5, max: 0.7}, 1, 120, 9, 1/7);
     terrainB = buildTerrain(randomColor(), {min: 0.7, max: 0.8}, 1.2, 60, 10, 1/3);
@@ -168,8 +167,9 @@ $(document).ready(function(){
   $('body').keyup(function(e){
     if (e.keyCode == 32){
       paused = !paused;
+    } else if (e.keyCode == 39){
+      speedMultiplier = defaultSpeedMultiplier;
     }
-    speedMultiplier = defaultSpeedMultiplier;
   });
 
   $('body').keydown(function(e){
